@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // Custom
   var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
-    //used to get width of container for use with bootsrap 4 grid
-      var width = $(".container").css("width");
+    //used to get width of parent for use with bootsrap 4 grid
+    var width = sticky.parent().css("width");
     var stickyHeight = sticky.outerHeight();
     var stickyTop = stickyWrapper.offset().top;
     if (scrollElement.scrollTop() >= stickyTop){
@@ -14,6 +14,7 @@ $(document).ready(function() {
     else{
       sticky.removeClass("is-sticky");
       stickyWrapper.height('auto');
+        sticky.css("width", width)
     }
   };
 
