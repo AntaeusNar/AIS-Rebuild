@@ -2,6 +2,7 @@ body {
     background: #0068aa;
 
 }
+
 img {
     padding: 10px;
 }
@@ -16,4 +17,13 @@ p.parg {
 
 .dropdown:hover>.dropdown-menu {
   display: block;
+}
+
+.affix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none;
 }
