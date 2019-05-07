@@ -1,25 +1,20 @@
 /*jslint browser: true*/
-/*global $*/
+/*global $, document, window*/
 
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
 
-var target = $('.navbar');
-target.after('<div class="affix" id="affix"></div>');
+// Get the navbar
+var navbar = document.getElementById("navbar");
 
-var affix = $('.affix');
-affix.append(target.clone(true));
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
 
-// Show affix on scroll.
-var element = document.getElementById('affix');
-if (element !== null) {
-  var position = target.position();
-  window.addEventListener('scroll', function () {
-    var height = $(window).scrollTop()
-    if (height > position.top) {
-      target.css('visibility', 'hidden')
-      affix.css('display', 'block')
-    } else {
-      affix.css('display', 'none')
-      target.css('visibility', 'visible')
-    }
-  })
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
 }
