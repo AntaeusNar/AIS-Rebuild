@@ -16,11 +16,13 @@ p.parg {
 }
 
 .dropdown:hover>.dropdown-menu {
-  display: block;
+    display: block;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+.sticky.is-sticky {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    background: #0068aa;
 }

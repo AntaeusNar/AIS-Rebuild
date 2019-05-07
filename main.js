@@ -1,28 +1,37 @@
-/*jslint browser: true*/
-/*global $, window*/
-$("#mainmenu").css("border", "3px solid red");
+$(document).ready(function() {
+  // Custom
+  var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
+    //used to get width of container for use with bootsrap 4 grid
+      var width = $(".container").css("width");
+    var stickyHeight = sticky.outerHeight();
+    var stickyTop = stickyWrapper.offset().top;
+    if (scrollElement.scrollTop() >= stickyTop){
+      stickyWrapper.height(stickyHeight);
+      sticky.addClass("is-sticky");
+        sticky.css("width", width)
 
-// Get the navbar
-var navbar = $("#mainmenu");
-console.log(navbar.id)
+    }
+    else{
+      sticky.removeClass("is-sticky");
+      stickyWrapper.height('auto');
+    }
+  };
 
-// Get the offset position of the navbar
-var sticky = $("#mainmenu").offsetTop;
-console.log(sticky)
+  // Find all data-toggle="sticky-onscroll" elements
+  $('[data-toggle="sticky-onscroll"]').each(function() {
+    var sticky = $(this);
 
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.addClass("sticky")
-  } else {
-    navbar.removeClass("sticky");
-  }
-}
+    var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+    sticky.before(stickyWrapper);
+    sticky.addClass('sticky');
 
 
-window.onload = function() {
+    // Scroll & resize events
+    $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+      stickyToggle(sticky, stickyWrapper, $(this));
+    });
 
-
-    // When the user scrolls the page, execute myFunction
-    window.onscroll = function() {myFunction()};
-};
+    // On page load
+    stickyToggle(sticky, stickyWrapper, $(window));
+  });
+});
