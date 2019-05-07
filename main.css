@@ -1,6 +1,10 @@
 body {
-    background: #0068aa;
+    background: #3a3a3a;
 
+}
+
+.container {
+    background: #0068aa;
 }
 
 img {
@@ -13,6 +17,10 @@ p.parg {
 
 .bg-dk-cst {
     background: #2d2d2d;
+}
+
+.bg-bl-cst {
+    background: #0068aa;
 }
 
 .dropdown:hover>.dropdown-menu {
