@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+    $("#bbb").colorbox({iframe:true, href:"https://www.bbb.org/us/nv/north-las-vegas/profile/locksmith/atlas-integrated-security-llc-1086-90048263", width:"80%", height:"80%"});
 
   // Custom
   var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
