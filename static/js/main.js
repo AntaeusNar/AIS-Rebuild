@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+
   // Custom
   var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
     //used to get width of parent for use with bootsrap 4 grid
