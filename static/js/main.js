@@ -1,6 +1,13 @@
+/*eslint-env jquery*/
+/*jslint browser: true*/
+/*global  $*/
+/* global $, document, window */
+
 $(document).ready(function() {
 
     $("#bbb").colorbox({iframe:true, href:"https://www.bbb.org/us/nv/north-las-vegas/profile/locksmith/atlas-integrated-security-llc-1086-90048263", width:"80%", height:"80%"});
+
+    $("#statelic").colorbox({iframe:true, href:"https://app.nvcontractorsboard.com/Clients/NVSCB/Public/Shared/Details.aspx?EntID=3951056&LicNum=270936", width:"80%", height:"80%"})
 
   // Custom
   var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
